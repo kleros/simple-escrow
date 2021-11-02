@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ChainId, DAppProvider } from "@usedapp/core";
+import { HashRouter } from "react-router-dom";
+import "antd/dist/antd.css";
+
 import App from "./app";
 import reportWebVitals from "./reportWebVitals";
-import "antd/dist/antd.css";
-import { ChainId, DAppProvider } from "@usedapp/core";
 
 const config = {
   readOnlyChainId: ChainId.Kovan,
@@ -16,7 +18,9 @@ const config = {
 ReactDOM.render(
   <React.StrictMode>
     <DAppProvider config={config}>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </DAppProvider>
   </React.StrictMode>,
   document.getElementById("root")
