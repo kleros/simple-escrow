@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 import { Escrow, Home } from "./pages";
 import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -32,8 +33,8 @@ function App() {
         notification["success"]({
           key: n.transaction.hash,
           message: n.transactionName,
-          description: `Transaction mined. Contract at ${n.transaction.creates}`,
-          duration: 0,
+          description: `Transaction mined.`,
+          duration: 5,
         });
     });
   }, [notifications]);
@@ -67,7 +68,9 @@ function App() {
         marginTop: "24px",
       }}
     >
-      <Typography.Title>Simple Escrow</Typography.Title>
+      <Link to={`/`}>
+        <Typography.Title>Simple Escrow</Typography.Title>
+      </Link>
       <Typography.Text type="secondary">
         {account && <>Account: {account}</>}
       </Typography.Text>

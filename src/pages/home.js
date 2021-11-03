@@ -1,12 +1,11 @@
 import { useEthers, useSendTransaction, useTransactions } from "@usedapp/core";
 import { Button, Input, Typography, Form, List } from "antd";
-
 import { ethers, utils } from "ethers";
-
-import abi from "../assets/abi.json";
-import bytecode from "../assets/bytecode.json";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+
+import abi from "../assets/escrow/abi.json";
+import bytecode from "../assets/escrow/bytecode.json";
 
 const agreement = "";
 
@@ -86,7 +85,9 @@ function Home() {
 
       <List
         bordered
-        dataSource={transactions.filter((t) => t.receipt)}
+        dataSource={transactions.filter(
+          (t) => t.receipt && t.receipt.contractAddress
+        )}
         renderItem={(transaction) => (
           <List.Item>
             <Typography.Link>
