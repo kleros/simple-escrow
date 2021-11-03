@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import abi from "../assets/escrow/abi.json";
 import bytecode from "../assets/escrow/bytecode.json";
 
-const agreement = "";
+const agreement =
+  "/ipfs/QmVR1Kg7VqWcLyp1GuQMQ4Sfm2b4MujWbmbmPdKqWL81qC/escrow.json";
 
 function Home() {
   const { account, library } = useEthers();

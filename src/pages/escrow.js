@@ -194,7 +194,7 @@ function Escrow() {
 
   const canRaiseDispute = useMemo(() => {
     if (typeof status === "undefined") return;
-    return status === statusCodeToName.Reclaimed;
+    return status === statusNameToCode.Reclaimed;
   }, [status]);
 
   const remainingTimeToReclaim = useMemo(() => {
